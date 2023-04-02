@@ -19,9 +19,8 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import axios from 'axios'
-Vue.use(axios)
+import UsuarioService from '@/service/UsuarioService'
+
 export default {
   name: 'Registation',
   data () {
@@ -33,14 +32,16 @@ export default {
       }
     }
   },
+  usuarioService: null,
   created () {
+    this.usuarioService = new UsuarioService()
   },
   mounted () {
     console.log('mounted')
   },
   methods: {
     LoginData () {
-      axios.post('http://localhost:8081/api/v1/login', this.usuario)
+      this.usuarioService.login(this.usuario)
         .then(
           ({ data }) => {
             console.log(data.mensaje)

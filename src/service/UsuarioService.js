@@ -5,4 +5,7 @@ export default class UsuarioService {
     getAll () {
       return axios.get(this.url + 'usuarios')
     }
+    login (usuario) {
+      return axios.post(this.url + 'login', this.usuario)
+    }
 }
