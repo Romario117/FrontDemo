@@ -6,6 +6,7 @@ import router from './router'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import Menubar from 'primevue/menubar'
+import HelloWorld from '@/components/HelloWorld'
 
 import 'primevue/resources/themes/bootstrap4-light-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
@@ -15,6 +16,7 @@ Vue.config.productionTip = false
 Vue.component('DataTable', DataTable)
 Vue.component('MyColumn', Column)
 Vue.component('MyMenu', Menubar)
+Vue.component('Dashboard', HelloWorld)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

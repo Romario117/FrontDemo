@@ -6,11 +6,11 @@
       <form @submit.prevent="LoginData">
         <div class="form-group">
           <label>Email</label>
-          <input type="text" v-model="usuario.username" class="form-control" placeholder="Email">
+          <input type="text" v-model="loginDTO.username" class="form-control" placeholder="Email">
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" v-model="usuario.password" class="form-control" placeholder="Password">
+          <input type="password" v-model="loginDTO.password" class="form-control" placeholder="Password">
         </div>
         <br />
         <button type="submit" class="btn btn-primary">Login</button>
@@ -26,7 +26,7 @@ export default {
   data () {
     return {
       result: {},
-      usuario: {
+      loginDTO: {
         username: '',
         password: ''
       }
@@ -41,7 +41,8 @@ export default {
   },
   methods: {
     LoginData () {
-      this.usuarioService.login(this.usuario)
+      console.log(this.loginDTO)
+      this.usuarioService.login(this.loginDTO)
         .then(
           ({ data }) => {
             console.log(data.mensaje)

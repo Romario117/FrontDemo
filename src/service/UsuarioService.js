@@ -6,6 +6,6 @@ export default class UsuarioService {
       return axios.get(this.url + 'usuarios')
     }
     login (usuario) {
-      return axios.post(this.url + 'login', this.usuario)
+      return axios.post(this.url + 'login', usuario)
     }
 }
