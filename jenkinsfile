@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Deploy to Nginx') {
+            steps {
+                script {
+                    // Copiar archivos de construcción a la ubicación de Nginx
+                    sh 'cp -R dist/* /usr/share/nginx/html'
+
+                    // Puedes agregar otros pasos aquí, como notificar a Nginx para que recargue la configuración
+                }
+            }
+        }
+    }
+}
